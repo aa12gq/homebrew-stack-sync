@@ -6,6 +6,9 @@ class StackSync < Formula
   license "MIT"
   head "https://github.com/aa12gq/stack-file-sync-intellij.git", branch: "main"
 
+  # This is a binary package, not a source package
+  bottle :unneeded
+
   def install
     bin.install "stack-sync"
   end
