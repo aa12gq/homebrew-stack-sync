@@ -25,11 +25,13 @@ Stack Sync is an interactive file synchronization tool for development teams. It
 ### Quick Start
 
 1. Initialize configuration:
+
    ```bash
    stack-sync init
    ```
 
 2. Add a repository:
+
    ```bash
    stack-sync add
    ```
