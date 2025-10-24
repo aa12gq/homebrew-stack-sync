@@ -6,7 +6,6 @@ class StackSync < Formula
   version "1.1.4"
   license "MIT"
 
-  bottle :unneeded
   head "https://github.com/aa12gq/stack-file-sync-intellij.git", branch: "main"
 
   def install
