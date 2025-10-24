@@ -1,20 +1,21 @@
 class StackSync < Formula
   desc "Interactive file synchronization tool for development teams"
   homepage "https://github.com/aa12gq/stack-file-sync-intellij"
-  url "https://github.com/aa12gq/stack-file-sync-intellij/releases/download/v1.1.1/stack-sync"
-  sha256 "98a22ea439855749b90f6b8b5789993c8e4e57abcaf253c482618ab1177e3a2a"
+  url "https://github.com/aa12gq/stack-file-sync-intellij/archive/refs/tags/v1.1.4.tar.gz"
+  sha256 "eacc9481a43fe637b58653b712dc013c4e831049f0603e8ef8ad1bfed588a9f2"
   license "MIT"
   head "https://github.com/aa12gq/stack-file-sync-intellij.git", branch: "main"
 
-  # This is a pre-compiled binary, no compilation needed
-  # No dependencies required for binary installation
+  depends_on "go" => :build
 
   def install
-    # This is a pre-compiled binary, just copy it to bin
-    bin.install "stack-sync"
+    # 进入 stack-sync-cli 目录
+    cd "stack-sync-cli" do
+      system "go", "build", "-o", bin/"stack-sync", "./cmd/stack-sync"
+    end
   end
 
   test do
-    assert_match "Stack Sync CLI", shell_output("#{bin}/stack-sync --version")
+    system "#{bin}/stack-sync", "version"
   end
 end
