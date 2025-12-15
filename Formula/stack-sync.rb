@@ -1,20 +1,21 @@
 class StackSync < Formula
   desc "Interactive file synchronization tool for development teams"
   homepage "https://github.com/aa12gq/stack-file-sync-intellij"
-  version "1.1.5"
+  version "1.2.0"
   license "MIT"
-  
+
   head "https://github.com/aa12gq/stack-file-sync-intellij.git", branch: "main"
 
   # Use universal binary for macOS (supports both Intel and ARM)
-  url "https://github.com/aa12gq/stack-file-sync-intellij/releases/download/v1.1.5/stack-sync-darwin-universal.tar.gz"
-  sha256 "13f200db1238317a0949d4c7abff8c1f302522cd191d831274aa5cf11a4989a1"
+  url "https://github.com/aa12gq/stack-file-sync-intellij/releases/download/v1.2.0/stack-sync-darwin-universal.tar.gz"
+  sha256 "f2b2cbce9d1c48b0526ca9b7ebe84d5eff7cb090ea928205616a789257a09e65"
 
   def install
+    # Archive contains the universal binary named stack-sync-darwin-universal
     bin.install "stack-sync-darwin-universal" => "stack-sync"
   end
 
   test do
-    system "#{bin}/stack-sync", "version"
+    system "#{bin}/stack-sync", "--version"
   end
 end
