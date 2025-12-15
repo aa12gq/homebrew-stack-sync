@@ -7,7 +7,7 @@ class StackSync < Formula
   head "https://github.com/aa12gq/stack-file-sync-intellij.git", branch: "main"
 
   url "https://github.com/aa12gq/stack-file-sync-intellij/archive/700d2080b92a3996e730fd54cd072ed101dac37e.tar.gz"
-  sha256 "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed"
+  sha256 "c3c1b265b339631aae17b0d164b681843b5ada7b0b531be5dac194c804f4b601"
 
   depends_on "go" => :build
 
