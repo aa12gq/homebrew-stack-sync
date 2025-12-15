@@ -6,13 +6,15 @@ class StackSync < Formula
 
   head "https://github.com/aa12gq/stack-file-sync-intellij.git", branch: "main"
 
-  # Use universal binary for macOS (supports both Intel and ARM)
-  url "https://github.com/aa12gq/stack-file-sync-intellij/releases/download/v1.2.0/stack-sync-darwin-universal.tar.gz"
-  sha256 "f2b2cbce9d1c48b0526ca9b7ebe84d5eff7cb090ea928205616a789257a09e65"
+  url "https://github.com/aa12gq/stack-file-sync-intellij/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "4857f6d23b727bd07aab9bf73d9569aa77ca0db1a4d8448e078819d2a4fb489f"
+
+  depends_on "go" => :build
 
   def install
-    # Archive contains the universal binary named stack-sync-darwin-universal
-    bin.install "stack-sync-darwin-universal" => "stack-sync"
+    cd "stack-sync-cli" do
+      system "go", "build", "-o", bin/"stack-sync", "./cmd/stack-sync"
+    end
   end
 
   test do
